@@ -17,6 +17,14 @@ namespace FightingClub_Nikita
             Application.Run(start);
             NamePlayer1 = start.StartName;
         }
+        
+        public void BlockGame(String _winner)
+        {
+            lblTitle.Text = _winner + " is winner!";
+            butHead.Enabled = false;
+            butBody.Enabled = false;
+            butLeg.Enabled = false;
+        }
         #region Events
         private void butHead_Click(object sender, EventArgs e)
         {
@@ -31,6 +39,16 @@ namespace FightingClub_Nikita
         private void butLeg_Click(object sender, EventArgs e)
         {
             if (ButLegClick != null) ButLegClick(this, EventArgs.Empty);
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void newGameToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Restart();
         }
         #endregion
 
@@ -95,10 +113,5 @@ namespace FightingClub_Nikita
             }
         }
         #endregion
-
-        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
     }
 }

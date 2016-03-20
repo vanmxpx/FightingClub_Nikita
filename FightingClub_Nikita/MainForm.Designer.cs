@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.menuMainStrip = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openLogFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -51,28 +51,28 @@
             this.pictureBoxPlayerTwo = new System.Windows.Forms.PictureBox();
             this.pictureBoxPlayerOne = new System.Windows.Forms.PictureBox();
             this.pictureBoxPlayer2 = new System.Windows.Forms.PictureBox();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.statusMainStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblRounds = new System.Windows.Forms.ToolStripStatusLabel();
-            this.menuStrip1.SuspendLayout();
+            this.menuMainStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPlayer1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPlayerTwo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPlayerOne)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPlayer2)).BeginInit();
-            this.statusStrip1.SuspendLayout();
+            this.statusMainStrip.SuspendLayout();
             this.SuspendLayout();
             // 
-            // menuStrip1
+            // menuMainStrip
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuMainStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(6, 3, 0, 3);
-            this.menuStrip1.Size = new System.Drawing.Size(785, 25);
-            this.menuStrip1.TabIndex = 3;
-            this.menuStrip1.Text = "menuStrip1";
+            this.menuMainStrip.Location = new System.Drawing.Point(0, 0);
+            this.menuMainStrip.Name = "menuMainStrip";
+            this.menuMainStrip.Padding = new System.Windows.Forms.Padding(6, 3, 0, 3);
+            this.menuMainStrip.Size = new System.Drawing.Size(785, 25);
+            this.menuMainStrip.TabIndex = 3;
+            this.menuMainStrip.Text = "menuMainStrip";
             // 
             // fileToolStripMenuItem
             // 
@@ -87,19 +87,20 @@
             // newGameToolStripMenuItem
             // 
             this.newGameToolStripMenuItem.Name = "newGameToolStripMenuItem";
-            this.newGameToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.newGameToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.newGameToolStripMenuItem.Text = "New game";
+            this.newGameToolStripMenuItem.Click += new System.EventHandler(this.newGameToolStripMenuItem_Click);
             // 
             // openLogFileToolStripMenuItem
             // 
             this.openLogFileToolStripMenuItem.Name = "openLogFileToolStripMenuItem";
-            this.openLogFileToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.openLogFileToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.openLogFileToolStripMenuItem.Text = "Open log file";
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -174,9 +175,9 @@
             this.lblPlayer2.Location = new System.Drawing.Point(624, 45);
             this.lblPlayer2.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.lblPlayer2.Name = "lblPlayer2";
-            this.lblPlayer2.Size = new System.Drawing.Size(46, 26);
+            this.lblPlayer2.Size = new System.Drawing.Size(72, 26);
             this.lblPlayer2.TabIndex = 12;
-            this.lblPlayer2.Text = "CPU";
+            this.lblPlayer2.Text = "Player 2";
             // 
             // lblPlayer1
             // 
@@ -224,13 +225,17 @@
             // textBoxLog
             // 
             this.textBoxLog.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.textBoxLog.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.textBoxLog.EnableAutoDragDrop = true;
             this.textBoxLog.Font = new System.Drawing.Font("Monotype Corsiva", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxLog.Location = new System.Drawing.Point(12, 360);
             this.textBoxLog.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
             this.textBoxLog.Name = "textBoxLog";
+            this.textBoxLog.ReadOnly = true;
+            this.textBoxLog.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedVertical;
             this.textBoxLog.Size = new System.Drawing.Size(760, 124);
             this.textBoxLog.TabIndex = 18;
+            this.textBoxLog.TabStop = false;
             this.textBoxLog.Text = "";
             // 
             // label1
@@ -276,16 +281,18 @@
             this.pictureBoxPlayer2.TabIndex = 19;
             this.pictureBoxPlayer2.TabStop = false;
             // 
-            // statusStrip1
+            // statusMainStrip
             // 
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.statusMainStrip.AutoSize = false;
+            this.statusMainStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1,
             this.lblRounds});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 489);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(785, 22);
-            this.statusStrip1.TabIndex = 20;
-            this.statusStrip1.Text = "statusStrip1";
+            this.statusMainStrip.Location = new System.Drawing.Point(0, 489);
+            this.statusMainStrip.Name = "statusMainStrip";
+            this.statusMainStrip.Size = new System.Drawing.Size(785, 22);
+            this.statusMainStrip.SizingGrip = false;
+            this.statusMainStrip.TabIndex = 20;
+            this.statusMainStrip.Text = "statusMainStrip";
             // 
             // toolStripStatusLabel1
             // 
@@ -305,7 +312,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(785, 511);
-            this.Controls.Add(this.statusStrip1);
+            this.Controls.Add(this.statusMainStrip);
             this.Controls.Add(this.pictureBoxPlayerTwo);
             this.Controls.Add(this.textBoxLog);
             this.Controls.Add(this.lblHPPlayer2);
@@ -319,22 +326,22 @@
             this.Controls.Add(this.progressBarPlayer1);
             this.Controls.Add(this.butHead);
             this.Controls.Add(this.lblTitle);
-            this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.menuMainStrip);
             this.DoubleBuffered = true;
-            this.MainMenuStrip = this.menuStrip1;
+            this.MainMenuStrip = this.menuMainStrip;
             this.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Fighting Club!";
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.menuMainStrip.ResumeLayout(false);
+            this.menuMainStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPlayer1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPlayerTwo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPlayerOne)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPlayer2)).EndInit();
-            this.statusStrip1.ResumeLayout(false);
-            this.statusStrip1.PerformLayout();
+            this.statusMainStrip.ResumeLayout(false);
+            this.statusMainStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -342,7 +349,7 @@
 
         #endregion
 
-        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.MenuStrip menuMainStrip;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newGameToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem openLogFileToolStripMenuItem;
@@ -364,7 +371,7 @@
         private System.Windows.Forms.PictureBox pictureBoxPlayerTwo;
         private System.Windows.Forms.PictureBox pictureBoxPlayerOne;
         private System.Windows.Forms.PictureBox pictureBoxPlayer2;
-        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.StatusStrip statusMainStrip;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.ToolStripStatusLabel lblRounds;
     }

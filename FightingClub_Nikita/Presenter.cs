@@ -13,6 +13,7 @@ namespace FightingClub_Nikita
         public Presenter(MainForm _view, LogManager _log)
         {
             _process = new Logic(_view.NamePlayer1);
+            _view.NamePlayer2 = _process.player2.Name;
             this._view = _view;
             this._log = _log;
 
@@ -63,11 +64,11 @@ namespace FightingClub_Nikita
         private void _view_EndGame(object sender, MyEventArgs e)
         {
             _view.AddLog = e.Name + "is dead!";
-            if(sender == _process.player1)
-                MessageBox.Show(e.Name + " is dead!", _process.player1.Name + " win!", MessageBoxButtons.OK);
+            if (sender == _process.player1)
+                MessageBox.Show(e.Name + " is dead!", _process.player2.Name + " win!", MessageBoxButtons.OK);
             else
-                MessageBox.Show(_process.player1.Name + " is dead!", e.Name + " win!", MessageBoxButtons.OK);
-
+                MessageBox.Show(_process.player2.Name + " is dead!", e.Name + " win!", MessageBoxButtons.OK);
+            _view.BlockGame((sender == _process.player1) ? _process.player2.Name : _process.player1.Name);
         }
 
         private void _view_AddLogInfoWound(object sender, MyEventArgs e)
