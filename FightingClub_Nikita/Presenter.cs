@@ -64,11 +64,9 @@ namespace FightingClub_Nikita
         private void _view_EndGame(object sender, MyEventArgs e)
         {
             _view.AddLog = e.Name + "is dead!";
-            if (sender == _process.player1)
-                MessageBox.Show(e.Name + " is dead!", _process.player2.Name + " win!", MessageBoxButtons.OK);
-            else
-                MessageBox.Show(_process.player2.Name + " is dead!", e.Name + " win!", MessageBoxButtons.OK);
-            _view.BlockGame((sender == _process.player1) ? _process.player2.Name : _process.player1.Name);
+            string winner = (sender == _process.player1) ? _process.player2.Name : _process.player1.Name;
+            MessageBox.Show(e.Name + " is dead!", winner + " win!", MessageBoxButtons.OK);
+            _view.BlockGame(winner);
         }
 
         private void _view_AddLogInfoWound(object sender, MyEventArgs e)

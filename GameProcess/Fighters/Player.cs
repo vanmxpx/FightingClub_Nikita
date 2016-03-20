@@ -50,7 +50,7 @@ namespace FightingClub_Nikita
             {
                 HealthPoints -= _dmg;
                 args.HP = HealthPoints;
-                if (Wound != null && 0 != args.HP ) Wound(this, args);
+                if (Wound != null && 0 != HealthPoints) Wound(this, args);
             }
         }
 
