@@ -54,6 +54,7 @@
             this.statusMainStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblRounds = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lblFinish = new System.Windows.Forms.Label();
             this.menuMainStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPlayer1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -224,7 +225,8 @@
             // 
             // textBoxLog
             // 
-            this.textBoxLog.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.textBoxLog.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.textBoxLog.AutoWordSelection = true;
             this.textBoxLog.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.textBoxLog.EnableAutoDragDrop = true;
             this.textBoxLog.Font = new System.Drawing.Font("Monotype Corsiva", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -307,11 +309,24 @@
             this.lblRounds.Size = new System.Drawing.Size(13, 17);
             this.lblRounds.Text = "0";
             // 
+            // lblFinish
+            // 
+            this.lblFinish.AutoSize = true;
+            this.lblFinish.Font = new System.Drawing.Font("Monotype Corsiva", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFinish.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.lblFinish.Location = new System.Drawing.Point(304, 308);
+            this.lblFinish.Name = "lblFinish";
+            this.lblFinish.Size = new System.Drawing.Size(0, 25);
+            this.lblFinish.TabIndex = 21;
+            this.lblFinish.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblFinish.Visible = false;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(785, 511);
+            this.Controls.Add(this.lblFinish);
             this.Controls.Add(this.statusMainStrip);
             this.Controls.Add(this.pictureBoxPlayerTwo);
             this.Controls.Add(this.textBoxLog);
@@ -374,6 +389,7 @@
         private System.Windows.Forms.StatusStrip statusMainStrip;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.ToolStripStatusLabel lblRounds;
+        private System.Windows.Forms.Label lblFinish;
     }
 }
 

@@ -18,12 +18,14 @@ namespace FightingClub_Nikita
             NamePlayer1 = start.StartName;
         }
         
-        public void BlockGame(String _winner)
+        public void BlockGame(string _winner)
         {
-            lblTitle.Text = _winner + " is winner!";
+            lblFinish.Visible = true;
+            lblFinish.Text = _winner + " is winner!";
             butHead.Enabled = false;
             butBody.Enabled = false;
             butLeg.Enabled = false;
+            
         }
         #region Events
         private void butHead_Click(object sender, EventArgs e)
