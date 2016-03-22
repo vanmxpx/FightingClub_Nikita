@@ -1,4 +1,5 @@
 ﻿using GameProcess;
+using GameProcess.Fighters;
 using System;
 using System.Windows.Forms;
 
@@ -17,51 +18,43 @@ namespace FightingClub_Nikita
             this._view = _view;
             this._log = _log;
 
-            _view.ButHeadClick += new EventHandler(_view_ButHeadClick);
-            _view.ButBodyClick += new EventHandler(_view_ButBodyClick);
-            _view.ButLegClick += new EventHandler(_view_ButLegClick);
-
-            _process.player1.Block += new EventHandler<MyEventArgs>(_view_AddLogInfoBlock);
-            _process.player1.Wound += new EventHandler<MyEventArgs>(_view_AddLogInfoWound);
-            _process.player1.Death += new EventHandler<MyEventArgs>(_view_EndGame);
-
-            _process.player2.Block += new EventHandler<MyEventArgs>(_view_AddLogInfoBlock);
-            _process.player2.Wound += new EventHandler<MyEventArgs>(_view_AddLogInfoWound);
-            _process.player2.Death += new EventHandler<MyEventArgs>(_view_EndGame);
+            Suscribe();
 
             UpdateStats();
         }
 
-        public void UpdateStats()
+        private void Suscribe()
         {
-            _view.HPPlayer1 = _process.player1.HealthPoints;
-            _view.HPPlayer2 = _process.player2.HealthPoints;
+            _view.ButHeadClick += new EventHandler<EventArgsBodyParts>(_view_BodyPartClick);
+            _view.ButBodyClick += new EventHandler<EventArgsBodyParts>(_view_BodyPartClick);
+            _view.ButLegClick += new EventHandler<EventArgsBodyParts>(_view_BodyPartClick);
+
+            _process.player1.Block += new EventHandler<EventArgsFighter>(_view_AddLogInfoBlock);
+            _process.player1.Wound += new EventHandler<EventArgsFighter>(_view_AddLogInfoWound);
+            _process.player1.Death += new EventHandler<EventArgsFighter>(_view_EndGame);
+
+            _process.player2.Block += new EventHandler<EventArgsFighter>(_view_AddLogInfoBlock);
+            _process.player2.Wound += new EventHandler<EventArgsFighter>(_view_AddLogInfoWound);
+            _process.player2.Death += new EventHandler<EventArgsFighter>(_view_EndGame);
+        }
+        private void UpdateStats()
+        {
+            _view.HPPlayers(_process.player1.HealthPoints,
+                _process.player2.HealthPoints);
             _view.Rounds = _process.Round;
             _view.Title = (_process.Round % 2 == 0) ? true : false;
         }
 
         #region Forms' events
-        private void _view_ButHeadClick(object sender, EventArgs e)
+        private void _view_BodyPartClick(object sender, EventArgsBodyParts e)
         {
-            _process.MakeStep(BodyParts._head);
-            UpdateStats();
-        }
-
-        private void _view_ButBodyClick(object sender, EventArgs e)
-        {
-            _process.MakeStep(BodyParts._body);
-            UpdateStats();
-        }
-
-        private void _view_ButLegClick(object sender, EventArgs e)
-        {
-            _process.MakeStep(BodyParts._leg);
+            _process.MakeStep(e._part);
             UpdateStats();
         }
         #endregion
 
         #region Logics' events
-        private void _view_EndGame(object sender, MyEventArgs e)
+        private void _view_EndGame(object sender, EventArgsFighter e)
         {
             _view.AddLog = e.Name + "is dead!";
             string winner = (sender == _process.player1) ? _process.player2.Name : _process.player1.Name;
@@ -69,12 +62,12 @@ namespace FightingClub_Nikita
             _view.BlockGame(winner);
         }
 
-        private void _view_AddLogInfoWound(object sender, MyEventArgs e)
+        private void _view_AddLogInfoWound(object sender, EventArgsFighter e)
         {
             _view.AddLog = e.Name + " taked damage! Now he has " + e.HP;
         }
 
-        private void _view_AddLogInfoBlock(object sender, MyEventArgs e)
+        private void _view_AddLogInfoBlock(object sender, EventArgsFighter e)
         {
             _view.AddLog = e.Name + " blocked attack!";
         }

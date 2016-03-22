@@ -46,21 +46,14 @@
             this.lblHPPlayer2 = new System.Windows.Forms.Label();
             this.pictureBoxPlayer1 = new System.Windows.Forms.PictureBox();
             this.textBoxLog = new System.Windows.Forms.RichTextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBoxPlayerTwo = new System.Windows.Forms.PictureBox();
-            this.pictureBoxPlayerOne = new System.Windows.Forms.PictureBox();
-            this.pictureBoxPlayer2 = new System.Windows.Forms.PictureBox();
             this.statusMainStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblRounds = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblFinish = new System.Windows.Forms.Label();
             this.menuMainStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPlayer1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPlayerTwo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPlayerOne)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPlayer2)).BeginInit();
             this.statusMainStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -88,7 +81,7 @@
             // newGameToolStripMenuItem
             // 
             this.newGameToolStripMenuItem.Name = "newGameToolStripMenuItem";
-            this.newGameToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.newGameToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.newGameToolStripMenuItem.Text = "New game";
             this.newGameToolStripMenuItem.Click += new System.EventHandler(this.newGameToolStripMenuItem_Click);
             // 
@@ -97,11 +90,12 @@
             this.openLogFileToolStripMenuItem.Name = "openLogFileToolStripMenuItem";
             this.openLogFileToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.openLogFileToolStripMenuItem.Text = "Open log file";
+            this.openLogFileToolStripMenuItem.Click += new System.EventHandler(this.openLogFileToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -227,6 +221,7 @@
             // 
             this.textBoxLog.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.textBoxLog.AutoWordSelection = true;
+            this.textBoxLog.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxLog.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.textBoxLog.EnableAutoDragDrop = true;
             this.textBoxLog.Font = new System.Drawing.Font("Monotype Corsiva", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -239,23 +234,7 @@
             this.textBoxLog.TabIndex = 18;
             this.textBoxLog.TabStop = false;
             this.textBoxLog.Text = "";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(641, 47);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(45, 13);
-            this.label1.TabIndex = 12;
-            this.label1.Text = "Player 2";
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Location = new System.Drawing.Point(567, 73);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(170, 229);
-            this.pictureBox2.TabIndex = 14;
-            this.pictureBox2.TabStop = false;
+            this.textBoxLog.WordWrap = false;
             // 
             // pictureBoxPlayerTwo
             // 
@@ -266,22 +245,6 @@
             this.pictureBoxPlayerTwo.Size = new System.Drawing.Size(169, 230);
             this.pictureBoxPlayerTwo.TabIndex = 19;
             this.pictureBoxPlayerTwo.TabStop = false;
-            // 
-            // pictureBoxPlayerOne
-            // 
-            this.pictureBoxPlayerOne.Location = new System.Drawing.Point(50, 73);
-            this.pictureBoxPlayerOne.Name = "pictureBoxPlayerOne";
-            this.pictureBoxPlayerOne.Size = new System.Drawing.Size(167, 229);
-            this.pictureBoxPlayerOne.TabIndex = 13;
-            this.pictureBoxPlayerOne.TabStop = false;
-            // 
-            // pictureBoxPlayer2
-            // 
-            this.pictureBoxPlayer2.Location = new System.Drawing.Point(567, 73);
-            this.pictureBoxPlayer2.Name = "pictureBoxPlayer2";
-            this.pictureBoxPlayer2.Size = new System.Drawing.Size(170, 229);
-            this.pictureBoxPlayer2.TabIndex = 19;
-            this.pictureBoxPlayer2.TabStop = false;
             // 
             // statusMainStrip
             // 
@@ -351,10 +314,7 @@
             this.menuMainStrip.ResumeLayout(false);
             this.menuMainStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPlayer1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPlayerTwo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPlayerOne)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPlayer2)).EndInit();
             this.statusMainStrip.ResumeLayout(false);
             this.statusMainStrip.PerformLayout();
             this.ResumeLayout(false);
@@ -381,11 +341,7 @@
         private System.Windows.Forms.Label lblHPPlayer1;
         private System.Windows.Forms.Label lblHPPlayer2;
         private System.Windows.Forms.RichTextBox textBoxLog;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBoxPlayerTwo;
-        private System.Windows.Forms.PictureBox pictureBoxPlayerOne;
-        private System.Windows.Forms.PictureBox pictureBoxPlayer2;
         private System.Windows.Forms.StatusStrip statusMainStrip;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.ToolStripStatusLabel lblRounds;

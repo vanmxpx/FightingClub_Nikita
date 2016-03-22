@@ -1,7 +1,6 @@
-﻿using FightingClub_Nikita;
-using System;
+﻿using System;
 
-namespace GameProcess
+namespace GameProcess.Fighters
 {
     public class CPUPlayer : Player
     {
