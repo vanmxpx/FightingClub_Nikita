@@ -9,7 +9,16 @@ namespace GameProcess.Fighters
         public event EventHandler<EventArgsFighter> Wound;
         public event EventHandler<EventArgsFighter> Death;
 
-        public string Name { get; private set; }
+        private string _name;
+        public string Name
+        {
+            get { return _name; }
+            set
+            {
+                _name = value;
+                args.Name = value;
+            }
+        }
         BodyParts _blocked;
         private int _hp;
         public int HealthPoints
@@ -29,9 +38,8 @@ namespace GameProcess.Fighters
         public Player(String _name, int _hp)
         {
             args = new EventArgsFighter();
-            args.Name = _name;
-            args.HP = HealthPoints;
             Name = _name;
+            args.HP = HealthPoints;
             HealthPoints = _hp;
         }
 
