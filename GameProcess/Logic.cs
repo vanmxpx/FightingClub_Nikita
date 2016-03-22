@@ -1,5 +1,4 @@
 ﻿using GameProcess.Fighters;
-using System;
 
 namespace GameProcess
 {
@@ -10,9 +9,9 @@ namespace GameProcess
 
         public int Round { get;  private set;}
 
-        public Logic(String _name)
+        public Logic()
         {
-            player1 = new Player(_name, ConstantFields.basicHp);
+            player1 = new Player("NoName", ConstantFields.basicHp);
             player2 = new CPUPlayer(ConstantFields.basicHp);
 
             Round = 0;

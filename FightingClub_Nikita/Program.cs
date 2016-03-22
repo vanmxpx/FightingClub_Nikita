@@ -16,9 +16,10 @@ namespace FightingClub_Nikita
             Application.SetCompatibleTextRenderingDefault(false);
 
             MainForm form = new MainForm();
+            Logic game = new Logic();
             LogManager log = new LogManager();
 
-            Presenter presenter = new Presenter(form, log);
+            Presenter presenter = new Presenter(form, game, log);
 
             Application.Run(form);
         }

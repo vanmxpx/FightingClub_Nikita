@@ -11,13 +11,13 @@ namespace FightingClub_Nikita
         Logic _process;
         LogManager _log;
 
-        public Presenter(MainForm _view, LogManager _log)
+        public Presenter(MainForm _view, Logic _process, LogManager _log)
         {
-            _process = new Logic(_view.NamePlayer1);
-            _view.NamePlayer2 = _process.player2.Name;
+            this._process = _process;
             this._view = _view;
             this._log = _log;
-
+            _process.player1.Name = _view.NamePlayer1;
+            _view.NamePlayer2 = _process.player2.Name;
             Suscribe();
 
             UpdateStats();
