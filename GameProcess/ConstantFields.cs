@@ -1,4 +1,4 @@
-﻿namespace FightingClub_Nikita
+﻿namespace GameProcess
 {
     public enum BodyParts
     {

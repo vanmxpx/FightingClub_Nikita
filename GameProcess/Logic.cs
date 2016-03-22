@@ -1,4 +1,4 @@
-﻿using FightingClub_Nikita;
+﻿using GameProcess.Fighters;
 using System;
 
 namespace GameProcess

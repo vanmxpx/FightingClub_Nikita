@@ -1,23 +1,29 @@
-﻿using System;
+﻿using GameProcess;
+using GameProcess.Fighters;
+using System;
+using System.IO;
 using System.Windows.Forms;
 
 namespace FightingClub_Nikita
 {
     public partial class MainForm : Form
     {
-        public event EventHandler ButHeadClick;
-        public event EventHandler ButBodyClick;
-        public event EventHandler ButLegClick;
+        public event EventHandler<EventArgsBodyParts> ButHeadClick;
+        public event EventHandler<EventArgsBodyParts> ButBodyClick;
+        public event EventHandler<EventArgsBodyParts> ButLegClick;
 
         StartForm start = new StartForm();
+        EventArgsBodyParts argsPart;
 
         public MainForm()
         {
             InitializeComponent();
             Application.Run(start);
             NamePlayer1 = start.StartName;
+
+            argsPart = new EventArgsBodyParts();
         }
-        
+
         public void BlockGame(string _winner)
         {
             lblFinish.Visible = true;
@@ -25,22 +31,31 @@ namespace FightingClub_Nikita
             butHead.Enabled = false;
             butBody.Enabled = false;
             butLeg.Enabled = false;
-            
+            //    Вынести в отдельный класс для вывода в файл
+            /* File.WriteAllText(System.Environment.GetFolderPath
+                  (System.Environment.SpecialFolder.Personal) 
+                  + @"\BattleLog.txt",
+                  textBoxLog.Text);
+              textBoxLog.Text += "Log saved. To open log file press 'File => Open log file'.";
+              */
         }
         #region Events
         private void butHead_Click(object sender, EventArgs e)
         {
-            if (ButHeadClick != null) ButHeadClick(this, EventArgs.Empty);
+            argsPart._part = BodyParts._head;
+            if (ButHeadClick != null) ButHeadClick(this, argsPart);
         }
 
         private void butBody_Click(object sender, EventArgs e)
         {
-            if (ButBodyClick != null) ButBodyClick(this, EventArgs.Empty);
+            argsPart._part = BodyParts._body;
+            if (ButBodyClick != null) ButBodyClick(this, argsPart);
         }
 
         private void butLeg_Click(object sender, EventArgs e)
         {
-            if (ButLegClick != null) ButLegClick(this, EventArgs.Empty);
+            argsPart._part = BodyParts._leg;
+            if (ButLegClick != null) ButLegClick(this, argsPart);
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -51,6 +66,21 @@ namespace FightingClub_Nikita
         private void newGameToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Restart();
+        }
+
+        private void openLogFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //          Вынести в отдельный класс вывода в файл
+            /*if (File.Exists(System.Environment.GetFolderPath
+                (System.Environment.SpecialFolder.Personal)
+                + @"\BattleLog.txt"))
+            {
+                File.OpenText(System.Environment.GetFolderPath
+                (System.Environment.SpecialFolder.Personal) + @"\BattleLog.txt");
+            }
+            else
+                MessageBox.Show("File is not exist.", "File is not created yet.", MessageBoxButtons.OK);
+                */
         }
         #endregion
 
@@ -68,36 +98,23 @@ namespace FightingClub_Nikita
         }
         public string NamePlayer2
         {
-            get
-            {
-                return lblPlayer2.Text;
-            }
             set
             {
                 lblPlayer2.Text = value;
             }
         }
-        public int HPPlayer1
+        public void HPPlayers(int player1, int player2)
         {
-            set
-            {
-                lblHPPlayer1.Text = value.ToString();
-                progressBarPlayer1.Value = value;
-            }
-        }
-        public int HPPlayer2
-        {
-            set
-            {
-                lblHPPlayer2.Text = value.ToString();
-                progressBarPlayer2.Value = value;
-            }
+            lblHPPlayer1.Text = player1.ToString();
+            progressBarPlayer1.Value = player1;
+            lblHPPlayer2.Text = player2.ToString();
+            progressBarPlayer2.Value = player2;
         }
         public bool Title
         {
             set
             {
-                lblTitle.Text = (value)? "Atack!" : "Block!";
+                lblTitle.Text = (value) ? "Atack!" : "Block!";
             }
         }
         public int Rounds
@@ -111,9 +128,10 @@ namespace FightingClub_Nikita
         {
             set
             {
-                textBoxLog.Text += value + "\n";
+                textBoxLog.AppendText(value + "\n");
             }
         }
         #endregion
     }
 }
+

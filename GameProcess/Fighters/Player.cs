@@ -1,18 +1,13 @@
 ﻿using System;
 
-namespace FightingClub_Nikita
+namespace GameProcess.Fighters
 {
-    public class MyEventArgs : EventArgs
-    {
-        public int HP { get; set; }
-        public string Name{ get; set; }
-}
     public class Player
     {
-        MyEventArgs args;
-        public event EventHandler<MyEventArgs> Block;
-        public event EventHandler<MyEventArgs> Wound;
-        public event EventHandler<MyEventArgs> Death;
+        EventArgsFighter args;
+        public event EventHandler<EventArgsFighter> Block;
+        public event EventHandler<EventArgsFighter> Wound;
+        public event EventHandler<EventArgsFighter> Death;
 
         public string Name { get; private set; }
         BodyParts _blocked;
@@ -33,7 +28,7 @@ namespace FightingClub_Nikita
 
         public Player(String _name, int _hp)
         {
-            args = new MyEventArgs();
+            args = new EventArgsFighter();
             args.Name = _name;
             args.HP = HealthPoints;
             Name = _name;
