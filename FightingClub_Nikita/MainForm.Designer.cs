@@ -51,6 +51,7 @@
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblRounds = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblFinish = new System.Windows.Forms.Label();
+            this.listBoxLog = new System.Windows.Forms.ListBox();
             this.menuMainStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPlayer1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPlayerTwo)).BeginInit();
@@ -88,7 +89,7 @@
             // openLogFileToolStripMenuItem
             // 
             this.openLogFileToolStripMenuItem.Name = "openLogFileToolStripMenuItem";
-            this.openLogFileToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.openLogFileToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.openLogFileToolStripMenuItem.Text = "Open log file";
             this.openLogFileToolStripMenuItem.Click += new System.EventHandler(this.openLogFileToolStripMenuItem_Click);
             // 
@@ -229,12 +230,11 @@
             this.textBoxLog.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
             this.textBoxLog.Name = "textBoxLog";
             this.textBoxLog.ReadOnly = true;
-            this.textBoxLog.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedVertical;
+            this.textBoxLog.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
             this.textBoxLog.Size = new System.Drawing.Size(760, 124);
             this.textBoxLog.TabIndex = 18;
             this.textBoxLog.TabStop = false;
             this.textBoxLog.Text = "";
-            this.textBoxLog.WordWrap = false;
             // 
             // pictureBoxPlayerTwo
             // 
@@ -284,11 +284,21 @@
             this.lblFinish.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblFinish.Visible = false;
             // 
+            // listBoxLog
+            // 
+            this.listBoxLog.Enabled = false;
+            this.listBoxLog.FormattingEnabled = true;
+            this.listBoxLog.Location = new System.Drawing.Point(290, 323);
+            this.listBoxLog.Name = "listBoxLog";
+            this.listBoxLog.Size = new System.Drawing.Size(239, 134);
+            this.listBoxLog.TabIndex = 22;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(785, 511);
+            this.Controls.Add(this.listBoxLog);
             this.Controls.Add(this.lblFinish);
             this.Controls.Add(this.statusMainStrip);
             this.Controls.Add(this.pictureBoxPlayerTwo);
@@ -346,6 +356,7 @@
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.ToolStripStatusLabel lblRounds;
         private System.Windows.Forms.Label lblFinish;
+        private System.Windows.Forms.ListBox listBoxLog;
     }
 }
 

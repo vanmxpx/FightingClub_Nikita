@@ -12,8 +12,8 @@ namespace FightingClub_Nikita
         public event EventHandler<EventArgsBodyParts> ButBodyClick;
         public event EventHandler<EventArgsBodyParts> ButLegClick;
 
-        StartForm start = new StartForm();
-        EventArgsBodyParts argsPart;
+        private StartForm start = new StartForm();
+        private EventArgsBodyParts argsPart;
 
         public MainForm()
         {
@@ -128,6 +128,9 @@ namespace FightingClub_Nikita
         {
             set
             {
+                listBoxLog.BeginUpdate();
+                listBoxLog.Items.Add(value);
+                listBoxLog.EndUpdate();
                 textBoxLog.AppendText(value + "\n");
             }
         }

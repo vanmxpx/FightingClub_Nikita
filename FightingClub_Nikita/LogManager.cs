@@ -1,6 +1,6 @@
 ﻿namespace FightingClub_Nikita
 {
-    class LogManager
+    public class LogManager
     {
     }
 }

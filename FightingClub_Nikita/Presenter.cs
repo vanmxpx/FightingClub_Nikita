@@ -5,11 +5,11 @@ using System.Windows.Forms;
 
 namespace FightingClub_Nikita
 {
-    class Presenter
+    public class Presenter
     {
-        MainForm _view;
-        Logic _process;
-        LogManager _log;
+        private MainForm _view;
+        private Logic _process;
+        private LogManager _log;
 
         public Presenter(MainForm _view, Logic _process, LogManager _log)
         {
