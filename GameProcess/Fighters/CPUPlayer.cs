@@ -4,7 +4,7 @@ namespace GameProcess.Fighters
 {
     public class CPUPlayer : Player
     {
-        static Random rnd;
+        private static Random rnd;
 
         public CPUPlayer(int _hp)
             : base("CPU",_hp)
